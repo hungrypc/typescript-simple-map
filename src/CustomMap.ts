@@ -3,7 +3,7 @@ interface Markable {
     lat: number
     lng: number
   }
-  name: string
+  markerContent(): string
 }
 
 export class CustomMap {
@@ -23,7 +23,7 @@ export class CustomMap {
     const { lat, lng } = entity.location
     
     const infowindow = new google.maps.InfoWindow({
-      content: `<h1 id="firstHeading" class="firstHeading">${entity.name}</h1>`
+      content: entity.markerContent()
     })
     
     const marker = new google.maps.Marker({
@@ -32,7 +32,6 @@ export class CustomMap {
         lat,
         lng
       },
-      title: entity.name,
       clickable: true,
       animation: google.maps.Animation.DROP
     })
