@@ -1,6 +1,7 @@
 import faker from 'faker'
+import { Markable } from './CustomMap'
 
-export class Company {
+export class Company implements Markable {
   type: string = 'Company'
   name: string
   catchPhrase: string
